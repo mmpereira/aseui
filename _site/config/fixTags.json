@@ -1,0 +1,312 @@
+{
+"tag1": {
+  "name": "Account",
+  "fixDataType": "String",
+  "description": "Account mnemonic as agreed between buy and sell sides, e.g. broker and institution or investor/intermediary and fund manager."
+},
+"tag6": {
+  "name": "AvgPx",
+  "fixDataType": "float",
+  "description": "Calculated average price of all fills on this order. For Fixed Income trades AvgPx is always expressed as percent-of-par, regardless of the PriceType (423) of LastPx (3). I.e., AvgPx will contain an average of percent-of-par values (see LastParPx (669)) for issues traded in Yield, Spread or Discount."
+},
+"tag7": {
+  "name": "BeginSeqNo",
+  "fixDataType": "int",
+  "description": "Message sequence number of first message in range to be resent"
+},
+"tag8": {
+  "name": "BeginString",
+  "fixDataType": "String",
+  "description": "Identifies beginning of new message and protocol version. ALWAYS FIRST FIELD IN MESSAGE. (Always unencrypted)"
+},
+"tag9": {
+  "name": "BodyLength",
+  "fixDataType": "int",
+  "description": "Message length, in bytes, forward to the CheckSum field. ALWAYS SECOND FIELD IN MESSAGE. (Always unencrypted)"
+},
+"tag10": {
+  "name": "CheckSum",
+  "fixDataType": "String",
+  "description": "Three byte, simple checksum (see Volume 2: \"Checksum Calculation\" for description). ALWAYS LAST FIELD IN MESSAGE; i.e. serves, with the trailing <SOH>, as the end-of-message delimiter. Always defined as three characters. (Always unencrypted)"
+},
+"tag11": {
+  "name": "ClOrdID",
+  "fixDataType": "String",
+  "description": "Unique identifier for Order as assigned by the buy-side (institution, broker, intermediary etc.) (identified by SenderCompID (49) or OnBehalfOfCompID (5) as appropriate). Uniqueness must be guaranteed within a single trading day. Firms, particularly those which electronically submit multi-day orders, trade globally or throughout market close periods, should ensure uniqueness across days, for example by embedding a date within the ClOrdID field."
+},
+"tag12": {
+  "name": "Commission",
+  "fixDataType": "float",
+  "description": "Commission. Note if CommType (3) is percentage, Commission of 5% should be represented as .05."
+},
+"tag14": {
+  "name": "CumQty",
+  "fixDataType": "float",
+  "description": "Total quantity (e.g. number of shares) filled. (Prior to FIX 4.2 this field was of type int)"
+},
+"tag15": {
+  "name": "Currency",
+  "fixDataType": "String",
+  "description": "Identifies currency used for price. Absence of this field is interpreted as the default for the security. It is recommended that systems provide the currency value whenever possible. See \"Appendix 6-A: Valid Currency Codes\" for information on obtaining valid values."
+},
+"tag16": {
+  "name": "EndSeqNo",
+  "fixDataType": "int",
+  "description": "Message sequence number of last message in range to be resent. If request is for a single message BeginSeqNo (7) = EndSeqNo. If request is for all messages subsequent to a particular message, EndSeqNo = \"0\" (representing infinity)."
+},
+"tag17": {
+  "name": "ExecID",
+  "fixDataType": "String",
+  "description": "Unique identifier of execution message as assigned by sell-side (broker, exchange, ECN) (will be 0 (zero) for ExecType (50) =I (Order Status)). Uniqueness must be guaranteed within a single trading day or the life of a multi-day order. Firms which accept multi-day orders should consider embedding a date within the ExecID field to assure uniqueness across days. (Prior to FIX 4.1 this field was of type int)"
+},
+"tag20": {
+  "name": "null",
+  "fixDataType": "null",
+  "description": "null"
+},
+"tag21": {
+  "name": "HandlInst",
+  "fixDataType": "char",
+  "description": "Instructions for order handling on Broker trading floor 1 = Automated execution order, private, no Broker intervention Added\u00A0 FIX.2.7 [AutomatedExecutionNoIntervention] 2 = Automated execution order, public, Broker intervention OK Added\u00A0 FIX.2.7 [AutomatedExecutionInterventionOK] 3 = Manual order, best execution Added\u00A0 FIX.2.7 [ManualOrder]"
+},
+"tag22": {
+  "name": "SecurityIDSource",
+  "fixDataType": "String",
+  "description": "Identifies class or source of the SecurityID (48) value. Required if SecurityID is specified. 1 = CUSIP Added\u00A0 FIX.2.7 [CUSIP] 2 = SEDOL Added\u00A0 FIX.2.7 [SEDOL] 3 = QUIK Added\u00A0 FIX.2.7 [QUIK] 4 = ISIN number Added\u00A0 FIX.3.0 [ISINNumber] 5 = RIC code Added\u00A0 FIX.3.0 [RICCode] 6 = ISO Currency Code Added\u00A0 FIX.4.1 [ISOCurrencyCode] 7 = ISO Country Code Added\u00A0 FIX.4.1 [ISOCountryCode] 8 = Exchange Symbol Added\u00A0 FIX.4.2 [ExchangeSymbol] 9 = Consolidated Tape Association (CTA) Symbol (SIAC CTS/CQS line format) Added\u00A0 FIX.4.2 [ConsolidatedTapeAssociation] A = Bloomberg Symbol Added\u00A0 FIX.4.3 [BloombergSymbol] B = Wertpapier Added\u00A0 FIX.4.3 [Wertpapier] C = Dutch Added\u00A0 FIX.4.3 [Dutch] D = Valoren Added\u00A0 FIX.4.3 [Valoren] E = Sicovam Added\u00A0 FIX.4.3 [Sicovam] F = Belgian Added\u00A0 FIX.4.3 [Belgian] G = \"Common\" (Clearstream and Euroclear) Added\u00A0 FIX.4.3 [Common] H = Clearing House / Clearing Organization Added\u00A0 FIX.4.4 [ClearingHouse] I = ISDA/FpML Product Specification Added\u00A0 FIX.4.4 [ISDAFpMLSpecification] J = Options Price Reporting Authority Added\u00A0 FIX.4.4 [OptionPriceReportingAuthority]"
+},
+"tag30": {
+  "name": "LastMkt",
+  "fixDataType": "String",
+  "description": "Market of execution for last fill, or an indication of the market where an order was routed Valid values: See \"Appendix 6-C\""
+},
+"tag31": {
+  "name": "LastPx",
+  "fixDataType": "float",
+  "description": "Price of this (last) fill."
+},
+"tag32": {
+  "name": "LastQty",
+  "fixDataType": "float",
+  "description": "Quantity (e.g. shares) bought/sold on this (last) fill. (Prior to FIX 4.2 this field was of type int)"
+},
+"tag34": {
+  "name": "MsgSeqNum",
+  "fixDataType": "int",
+  "description": "Integer message sequence number"
+},
+"tag35": {
+  "name": "MsgType",
+  "fixDataType": "String",
+  "description": "Defines message type ALWAYS THIRD FIELD IN MESSAGE. (Always unencrypted) Note: A \"U\" as the first character in the MsgType field (i.e. U, U2, etc) indicates that the message format is privately defined between the sender and receiver. 0 = Heartbeat Added\u00A0 FIX.2.7 [Heartbeat] 1 = Test Request Added\u00A0 FIX.2.7 [TestRequest] 2 = Resend Request Added\u00A0 FIX.2.7 [ResendRequest] 3 = Reject Added\u00A0 FIX.2.7 [Reject] 4 = Sequence Reset Added\u00A0 FIX.2.7 [SequenceReset] 5 = Logout Added\u00A0 FIX.2.7 [Logout] 6 = Indication of Interest Added\u00A0 FIX.2.7 [IOI] 7 = Advertisement Added\u00A0 FIX.2.7 [Advertisement] 8 = Execution Report Added\u00A0 FIX.2.7 [ExecutionReport] 9 = Order Cancel Reject Added\u00A0 FIX.2.7 [OrderCancelReject] A = Logon Added\u00A0 FIX.2.7 [Logon] B = News Added\u00A0 FIX.2.7 [News] C = Email Added\u00A0 FIX.2.7 [Email] D = Order \u2013 Single Added\u00A0 FIX.2.7 [NewOrderSingle] E = Order \u2013 List Added\u00A0 FIX.2.7 [NewOrderList] F = Order Cancel Request Added\u00A0 FIX.2.7 [OrderCancelRequest] G = Order Cancel/Replace Request Added\u00A0 FIX.2.7 [OrderCancelReplaceRequest] H = Order Status Request Added\u00A0 FIX.2.7 [OrderStatusRequest] J = Allocation Instruction Added\u00A0 FIX.2.7 [AllocationInstruction] K = List Cancel Request Added\u00A0 FIX.2.7 [ListCancelRequest] L = List Execute Added\u00A0 FIX.2.7 [ListExecute] M = List Status Request Added\u00A0 FIX.2.7 [ListStatusRequest] N = List Status Added\u00A0 FIX.2.7 [ListStatus] P = Allocation Instruction Ack Added\u00A0 FIX.2.7 [AllocationInstructionAck] Q = Don\u2019t Know Trade (DK) Added\u00A0 FIX.4.0 [DontKnowTrade] R = Quote Request Added\u00A0 FIX.4.0 [QuoteRequest] S = Quote Added\u00A0 FIX.4.0 [Quote] T = Settlement Instructions Added\u00A0 FIX.4.1 [SettlementInstructions] V = Market Data Request Added\u00A0 FIX.4.2 [MarketDataRequest] W = Market Data-Snapshot/Full Refresh Added\u00A0 FIX.4.2 [MarketDataSnapshotFullRefresh] X = Market Data-Incremental Refresh Added\u00A0 FIX.4.2 [MarketDataIncrementalRefresh] Y = Market Data Request Reject Added\u00A0 FIX.4.2 [MarketDataRequestReject] Z = Quote Cancel Added\u00A0 FIX.4.2 [QuoteCancel] a = Quote Status Request Added\u00A0 FIX.4.2 [QuoteStatusRequest] b = Mass Quote Acknowledgement Added\u00A0 FIX.4.2 [MassQuoteAcknowledgement] c = Security Definition Request Added\u00A0 FIX.4.2 [SecurityDefinitionRequest] d = Security Definition Added\u00A0 FIX.4.2 [SecurityDefinition] e = Security Status Request Added\u00A0 FIX.4.2 [SecurityStatusRequest] f = Security Status Added\u00A0 FIX.4.2 [SecurityStatus] g = Trading Session Status Request Added\u00A0 FIX.4.2 [TradingSessionStatusRequest] h = Trading Session Status Added\u00A0 FIX.4.2 [TradingSessionStatus] i = Mass Quote Added\u00A0 FIX.4.2 [MassQuote] j = Business Message Reject Added\u00A0 FIX.4.2 [BusinessMessageReject] k = Bid Request Added\u00A0 FIX.4.2 [BidRequest] l = Bid Response (lowercase L) Added\u00A0 FIX.4.2 [BidResponse] m = List Strike Price Added\u00A0 FIX.4.2 [ListStrikePrice] n = XML message (e.g. non-FIX MsgType) Added\u00A0 FIX.4.3 [XMLNonFIX] o = Registration Instructions Added\u00A0 FIX.4.3 [RegistrationInstructions] p = Registration Instructions Response Added\u00A0 FIX.4.3 [RegistrationInstructionsResponse] q = Order Mass Cancel Request Added\u00A0 FIX.4.3 [OrderMassCancelRequest] r = Order Mass Cancel Report Added\u00A0 FIX.4.3 [OrderMassCancelReport] s = New Order - Cross Added\u00A0 FIX.4.3 [NewOrderCross] t = Cross Order Cancel/Replace Request (a.k.a. Cross Order Modification Request) Added\u00A0 FIX.4.3 [CrossOrderCancelReplaceRequest] u = Cross Order Cancel Request Added\u00A0 FIX.4.3 [CrossOrderCancelRequest] v = Security Type Request Added\u00A0 FIX.4.3 [SecurityTypeRequest] w = Security Types Added\u00A0 FIX.4.3 [SecurityTypes] x = Security List Request Added\u00A0 FIX.4.3 [SecurityListRequest] y = Security List Added\u00A0 FIX.4.3 [SecurityList] z = Derivative Security List Request Added\u00A0 FIX.4.3 [DerivativeSecurityListRequest] AA = Derivative Security List Added\u00A0 FIX.4.3 [DerivativeSecurityList] AB = New Order - Multileg Added\u00A0 FIX.4.3 [NewOrderMultileg] AC = Multileg Order Cancel/Replace (a.k.a. Multileg Order Modification Request) Added\u00A0 FIX.4.3 [MultilegOrderCancelReplace] AD = Trade Capture Report Request Added\u00A0 FIX.4.3 [TradeCaptureReportRequest] AE = Trade Capture Report Added\u00A0 FIX.4.3 [TradeCaptureReport] AF = Order Mass Status Request Added\u00A0 FIX.4.3 [OrderMassStatusRequest] AG = Quote Request Reject Added\u00A0 FIX.4.3 [QuoteRequestReject] AH = RFQ Request Added\u00A0 FIX.4.3 [RFQRequest] AI = Quote Status Report Added\u00A0 FIX.4.3 [QuoteStatusReport] AJ = Quote Response Added\u00A0 FIX.4.4 [QuoteResponse] AK = Confirmation Added\u00A0 FIX.4.4 [Confirmation] AL = Position Maintenance Request Added\u00A0 FIX.4.4 [PositionMaintenanceRequest] AM = Position Maintenance Report Added\u00A0 FIX.4.4 [PositionMaintenanceReport] AN = Request For Positions Added\u00A0 FIX.4.4 [RequestForPositions] AO = Request For Positions Ack Added\u00A0 FIX.4.4 [RequestForPositionsAck] AP = Position Report Added\u00A0 FIX.4.4 [PositionReport] AQ = Trade Capture Report Request Ack Added\u00A0 FIX.4.4 [TradeCaptureReportRequestAck] AR = Trade Capture Report Ack Added\u00A0 FIX.4.4 [TradeCaptureReportAck] AS = Allocation Report (aka Allocation Claim) Added\u00A0 FIX.4.4 [AllocationReport] AT = Allocation Report Ack (aka Allocation Claim Ack) Added\u00A0 FIX.4.4 [AllocationReportAck] AU = Confirmation Ack (aka Affirmation) Added\u00A0 FIX.4.4 [ConfirmationAck] AV = Settlement Instruction Request Added\u00A0 FIX.4.4 [SettlementInstructionRequest] AW = Assignment Report Added\u00A0 FIX.4.4 [AssignmentReport] AX = Collateral Request Added\u00A0 FIX.4.4 [CollateralRequest] AY = Collateral Assignment Added\u00A0 FIX.4.4 [CollateralAssignment] AZ = Collateral Response Added\u00A0 FIX.4.4 [CollateralResponse] BA = Collateral Report Added\u00A0 FIX.4.4 [CollateralReport] BB = Collateral Inquiry Added\u00A0 FIX.4.4 [CollateralInquiry] BC = Network (Counterparty System) Status Request Added\u00A0 FIX.4.4 [NetworkCounterpartySystemStatusRequest] BD = Network (Counterparty System) Status Response Added\u00A0 FIX.4.4 [NetworkCounterpartySystemStatusResponse] BE = User Request Added\u00A0 FIX.4.4 [UserRequest] BF = User Response Added\u00A0 FIX.4.4 [UserResponse] BG = Collateral Inquiry Ack Added\u00A0 FIX.4.4 [CollateralInquiryAck] BH = Confirmation Request Added\u00A0 FIX.4.4 [ConfirmationRequest]"
+},
+"tag36": {
+  "name": "NewSeqNo",
+  "fixDataType": "int",
+  "description": "New sequence number"
+},
+"tag37": {
+  "name": "OrderID",
+  "fixDataType": "String",
+  "description": "Unique identifier for Order as assigned by sell-side (broker, exchange, ECN). Uniqueness must be guaranteed within a single trading day. Firms which accept multi-day orders should consider embedding a date within the OrderID field to assure uniqueness across days."
+},
+"tag38": {
+  "name": "OrderQty",
+  "fixDataType": "float",
+  "description": "Quantity ordered. This represents the number of shares for equities or par, face or nominal value for FI instruments. (Prior to FIX 4.2 this field was of type int)"
+},
+"tag39": {
+  "name": "OrdStatus",
+  "fixDataType": "char",
+  "description": "Identifies current status of order. *** SOME VALUES HAVE BEEN REPLACED - See \"Replaced Features and Supported Approach\" *** (see Volume : \"Glossary\" for value definitions) 0 = New Added\u00A0 FIX.2.7 [New] 1 = Partially filled Added\u00A0 FIX.2.7 [PartiallyFilled] 2 = Filled Added\u00A0 FIX.2.7 [Filled] 3 = Done for day Added\u00A0 FIX.2.7 [DoneForDay] 4 = Canceled Added\u00A0 FIX.2.7 [Canceled] 6 = Pending Cancel (e.g. result of Order Cancel Request) Added\u00A0 FIX.2.7 [PendingCancel] 7 = Stopped Added\u00A0 FIX.2.7 [Stopped] 8 = Rejected Added\u00A0 FIX.2.7 [Rejected] 9 = Suspended Added\u00A0 FIX.3.0 [Suspended] A = Pending New Added\u00A0 FIX.3.0 [PendingNew] B = Calculated Added\u00A0 FIX.4.0 [Calculated] C = Expired Added\u00A0 FIX.4.0 [Expired] D = Accepted for bidding Added\u00A0 FIX.4.2 [AcceptedForBidding] E = Pending Replace (e.g. result of Order Cancel/Replace Request) Added\u00A0 FIX.4.2 [PendingReplace]"
+},
+"tag40": {
+  "name": "OrdType",
+  "fixDataType": "char",
+  "description": "Order type *** SOME VALUES ARE NO LONGER USED - See \"Deprecated (Phased-out) Features and Supported Approach\" *** (see Volume : \"Glossary\" for value definitions) 1 = Market Added\u00A0 FIX.2.7 [Market] 2 = Limit Added\u00A0 FIX.2.7 [Limit] 3 = Stop Added\u00A0 FIX.2.7 [Stop] 4 = Stop limit Added\u00A0 FIX.2.7 [StopLimit] 6 = With or without Added\u00A0 FIX.2.7 [WithOrWithout] 7 = Limit or better (Deprecated) Added\u00A0 FIX.2.7 [LimitOrBetter] 8 = Limit with or without Added\u00A0 FIX.2.7 [LimitWithOrWithout] 9 = On basis Added\u00A0 FIX.2.7 [OnBasis] D = Previously quoted Added\u00A0 FIX.4.0 [PreviouslyQuoted] E = Previously indicated Added\u00A0 FIX.4.0 [PreviouslyIndicated] G = Forex - Swap Added\u00A0 FIX.4.1 [ForexSwap] I = Funari (Limit Day Order with unexecuted portion handled as Market On Close. E.g. Japan) Added\u00A0 FIX.4.2 [Funari] J = Market If Touched (MIT) Added\u00A0 FIX.4.3 [MarketIfTouched] K = Market with Leftover as Limit (market order then unexecuted quantity becomes limit order at last price) Added\u00A0 FIX.4.3 [MarketWithLeftOverAsLimit] L = Previous Fund Valuation Point (Historic pricing) (for CIV) Added\u00A0 FIX.4.3 [PreviousFundValuationPoint] M = Next Fund Valuation Point \u2013(Forward pricing) (for CIV) Added\u00A0 FIX.4.3 [NextFundValuationPoint] P = Pegged Added\u00A0 FIX.3.0 [Pegged]"
+},
+"tag41": {
+  "name": "OrigClOrdID",
+  "fixDataType": "String",
+  "description": "ClOrdID () of the previous order (NOT the initial order of the day) as assigned by the institution, used to identify the previous order in cancel and cancel/replace requests."
+},
+"tag43": {
+  "name": "PossDupFlag",
+  "fixDataType": "char",
+  "description": "Indicates possible retransmission of message with this sequence number Y = Possible duplicate Added\u00A0 FIX.2.7 [PossibleDuplicate] N = Original transmission Added\u00A0 FIX.2.7 [OriginalTransmission]"
+},
+"tag44": {
+  "name": "Price",
+  "fixDataType": "float",
+  "description": "Price per unit of quantity (e.g. per share)"
+},
+"tag48": {
+  "name": "SecurityID",
+  "fixDataType": "String",
+  "description": "Security identifier value of SecurityIDSource (22) type (e.g. CUSIP, SEDOL, ISIN, etc). Requires SecurityIDSource."
+},
+"tag49": {
+  "name": "SenderCompID",
+  "fixDataType": "String",
+  "description": "Assigned value used to identify firm sending message."
+},
+"tag50": {
+  "name": "SenderSubID",
+  "fixDataType": "String",
+  "description": "Assigned value used to identify specific message originator (desk, trader, etc.)"
+},
+"tag52": {
+  "name": "SendingTime",
+  "fixDataType": "String",
+  "description": "Time of message transmission (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\")"
+},
+"tag54": {
+  "name": "Side",
+  "fixDataType": "char",
+  "description": "Side of order 1 = Buy Added\u00A0 FIX.2.7 [Buy] 2 = Sell Added\u00A0 FIX.2.7 [Sell] 3 = Buy minus Added\u00A0 FIX.2.7 [BuyMinus] 4 = Sell plus Added\u00A0 FIX.2.7 [SellPlus] 5 = Sell short Added\u00A0 FIX.2.7 [SellShort] 6 = Sell short exempt Added\u00A0 FIX.2.7 [SellShortExempt] 7 = Undisclosed (valid for IOI and List Order messages only) Added\u00A0 FIX.4.1 [Undisclosed] 8 = Cross (orders where counterparty is an exchange, valid for all messages except IOIs) Added\u00A0 FIX.4.1 [Cross] 9 = Cross short Added\u00A0 FIX.4.2 [CrossShort] A = Cross short exempt Added\u00A0 FIX.4.3 [CrossShortExempt] B = \"As Defined\" (for use with multileg instruments) Added\u00A0 FIX.4.3 [AsDefined] C = \"Opposite\" (for use with multileg instruments) Added\u00A0 FIX.4.3 [Opposite] D = Subscribe (e.g. CIV) Added\u00A0 FIX.4.4 [Subscribe] E = Redeem (e.g. CIV) Added\u00A0 FIX.4.4 [Redeem] F = Lend (FINANCING - identifies direction of collateral) Added\u00A0 FIX.4.4 [Lend] G = Borrow (FINANCING - identifies direction of collateral) Added\u00A0 FIX.4.4 [Borrow]"
+},
+"tag55": {
+  "name": "Symbol",
+  "fixDataType": "String",
+  "description": "Ticker symbol. Common, \"human understood\" representation of the security. SecurityID (48) value can be specified if no symbol exists (e.g. non-exchange traded Collective Investment Vehicles) Use \"[N/A]\" for products which do not have a symbol."
+},
+"tag56": {
+  "name": "TargetCompID",
+  "fixDataType": "String",
+  "description": "Assigned value used to identify receiving firm."
+},
+"tag58": {
+  "name": "Text",
+  "fixDataType": "String",
+  "description": "Free format text string (Note: this field does not have a specified maximum length)"
+},
+"tag59": {
+  "name": "TimeInForce",
+  "fixDataType": "char",
+  "description": "Specifies how long the order remains in effect. Absence of this field is interpreted as DAY. 0 = Day (or session) Added\u00A0 FIX.2.7 [Day] 1 = Good Till Cancel (GTC) Added\u00A0 FIX.2.7 [GoodTillCancel] 2 = At the Opening (OPG) Added\u00A0 FIX.2.7 [AtTheOpening] 3 = Immediate or Cancel (IOC) Added\u00A0 FIX.2.7 [ImmediateOrCancel] 4 = Fill or Kill (FOK) Added\u00A0 FIX.2.7 [FillOrKill] 5 = Good Till Crossing (GTX) Added\u00A0 FIX.2.7 [GoodTillCrossing] 6 = Good Till Date Added\u00A0 FIX.4.0 [GoodTillDate] 7 = At the Close Added\u00A0 FIX.4.3 [AtTheClose]"
+},
+"tag60": {
+  "name": "TransactTime",
+  "fixDataType": "String",
+  "description": "Time of execution/order creation (expressed in UTC (Universal Time Coordinated, also known as \"GMT\")"
+},
+"tag63": {
+  "name": "SettlType",
+  "fixDataType": "char",
+  "description": "Indicates order settlement period. If present, SettlDate (64) overrides this field. If both SettlType (63) and SettDate (64) are omitted, the default for SettlType (63) is 0 (Regular) Regular is defined as the default settlement period for the particular security on the exchange of execution. In Fixed Income the contents of this field may influence the instrument definition if the SecurityID (48) is ambiguous. In the US an active Treasury offering may be re-opened, and for a time one CUSIP will apply to both the current and \"when-issued\" securities. Supplying a value of \"7\" clarifies the instrument description; any other value or the absence of this field should cause the respondent to default to the active issue. 0 = Regular Added\u00A0 FIX.2.7 [Regular] 1 = Cash Added\u00A0 FIX.2.7 [Cash] 2 = Next Day (T+1) Added\u00A0 FIX.2.7 [NextDay] 3 = T+2 Added\u00A0 FIX.2.7 [TPlus2] 4 = T+3 Added\u00A0 FIX.2.7 [TPlus3] 5 = T+4 Added\u00A0 FIX.2.7 [TPlus4] 6 = Future Added\u00A0 FIX.2.7 [Future] 7 = When And If Issued Added\u00A0 FIX.2.7 [WhenAndIfIssued] 8 = Sellers Option Added\u00A0 FIX.2.7 [SellersOption] 9 = T+ 5 Added\u00A0 FIX.3.0 [TPlus5]"
+},
+"tag64": {
+  "name": "SettlDate",
+  "fixDataType": "String",
+  "description": "Specific date of trade settlement (SettlementDate) in YYYYMMDD format. If present, this field overrides SettlType (63). This field is required if the value of SettlType (63) is 6 (Future) or 8 (Sellers Option). This field must be omitted if the value of SettlType (63) is 7 (When and If Issued) (expressed in local time at place of settlement)"
+},
+"tag75": {
+  "name": "TradeDate",
+  "fixDataType": "String",
+  "description": "Indicates date of trade referenced in this message in YYYYMMDD format. Absence of this field indicates current day (expressed in local time at place of trade)."
+},
+"tag76": {
+  "name": "null",
+  "fixDataType": "null",
+  "description": "null"
+},
+"tag98": {
+  "name": "EncryptMethod",
+  "fixDataType": "int",
+  "description": "Method of encryption 0 = None / other Added\u00A0 FIX.2.7 [None] 1 = PKCS (proprietary) Added\u00A0 FIX.2.7 [PKCS] 2 = DES (ECB mode) Added\u00A0 FIX.2.7 [DES] 3 = PKCS/DES (proprietary) Added\u00A0 FIX.2.7 [PKCSDES] 4 = PGP/DES (defunct) Added\u00A0 FIX.3.0 [PGPDES] 5 = PGP/DES-MD5 (see app note on FIX web site) Added\u00A0 FIX.4.0 [PGPDESMD5] 6 = PEM/DES-MD5 (see app note on FIX web site) Added\u00A0 FIX.4.0 [PEM]"
+},
+"tag99": {
+  "name": "StopPx",
+  "fixDataType": "float",
+  "description": "Price per unit of quantity (e.g. per share)"
+},
+"tag100": {
+  "name": "ExDestination",
+  "fixDataType": "String",
+  "description": "Execution destination as defined by institution when order is entered. Valid values: See \"Appendix 6-C\""
+},
+"tag107": {
+  "name": "SecurityDesc",
+  "fixDataType": "String",
+  "description": "Security description."
+},
+"tag108": {
+  "name": "HeartBtInt",
+  "fixDataType": "int",
+  "description": "Heartbeat interval (seconds)"
+},
+"tag115": {
+  "name": "OnBehalfOfCompID",
+  "fixDataType": "String",
+  "description": "Assigned value used to identify firm originating message if the message was delivered by a third party i.e. the third party firm identifier would be delivered in the SenderCompID field and the firm originating the message in this field."
+},
+"tag122": {
+  "name": "OrigSendingTime",
+  "fixDataType": "String",
+  "description": "Original time of message transmission (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\") when transmitting orders as the result of a resend request."
+},
+"tag123": {
+  "name": "GapFillFlag",
+  "fixDataType": "char",
+  "description": "Indicates that the Sequence Reset message is replacing administrative or application messages which will not be resent. Y = Gap Fill message, MsgSeqNum field valid Added\u00A0 FIX.4.0 [GapFillMessage] N = Sequence Reset, ignore MsgSeqNum Added\u00A0 FIX.4.0 [SequenceReset]"
+},
+"tag126": {
+  "name": "ExpireTime",
+  "fixDataType": "String",
+  "description": "Time/Date of order expiration (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\") The meaning of expiration is specific to the context where the field is used. For orders, this is the expiration time of a Good Til Date TimeInForce. For Quotes - this is the expiration of the quote. Expiration time is provided across the quote message dialog to control the length of time of the overall quoting process. For collateral requests, this is the time by which collateral must be assigned. For collateral assignments, this is the time by which a response to the assignment is expected."
+},
+"tag128": {
+  "name": "DeliverToCompID",
+  "fixDataType": "String",
+  "description": "Assigned value used to identify the firm targeted to receive the message if the message is delivered by a third party i.e. the third party firm identifier would be delivered in the TargetCompID (56) field and the ultimate receiver firm ID in this field."
+},
+"tag150": {
+  "name": "ExecType",
+  "fixDataType": "char",
+  "description": "Describes the specific ExecutionRpt (i.e. Pending Cancel) while OrdStatus (39) will always identify the current order status (i.e. Partially Filled) *** SOME VALUES HAVE BEEN REPLACED - See \"Replaced Features and Supported Approach\" *** 0 = New Added\u00A0 FIX.4.1 [New] 3 = Done for day Added\u00A0 FIX.4.1 [DoneForDay] 4 = Canceled Added\u00A0 FIX.4.1 [Canceled] 5 = Replace Added\u00A0 FIX.4.1 [Replaced] 6 = Pending Cancel (e.g. result of Order Cancel Request) Added\u00A0 FIX.4.1 [PendingCancel] 7 = Stopped Added\u00A0 FIX.4.1 [Stopped] 8 = Rejected Added\u00A0 FIX.4.1 [Rejected] 9 = Suspended Added\u00A0 FIX.4.1 [Suspended] A = Pending New Added\u00A0 FIX.4.1 [PendingNew] B = Calculated Added\u00A0 FIX.4.1 [Calculated] C = Expired Added\u00A0 FIX.4.1 [Expired] D = Restated (ExecutionRpt sent unsolicited by sellside, with ExecRestatementReason (378) set) Added\u00A0 FIX.4.2 [Restated] E = Pending Replace (e.g. result of Order Cancel/Replace Request) Added\u00A0 FIX.4.2 [PendingReplace] F = Trade (partial fill or fill) Added\u00A0 FIX.4.3 [Trade] G = Trade Correct (formerly an ExecTransType (20)) Added\u00A0 FIX.4.3 [TradeCorrect] H = Trade Cancel (formerly an ExecTransType) Added\u00A0 FIX.4.3 [TradeCancel] I = Order Status (formerly an ExecTransType) Added\u00A0 FIX.4.3 [OrderStatus]"
+},
+"tag151": {
+  "name": "LeavesQty",
+  "fixDataType": "float",
+  "description": "Quantity open for further execution. If the OrdStatus (39) is Canceled, DoneForTheDay, Expired, Calculated, or Rejected (in which case the order is no longer active) then LeavesQty could be 0, otherwise LeavesQty = OrderQty (38) \u2013 CumQty (4). (Prior to FIX 4.2 this field was of type int)"
+},
+"tag167": {
+  "name": "SecurityType",
+  "fixDataType": "String",
+  "description": "Indicates type of security. See also the Product (460) and CFICode (46) fields. It is recommended that CFICode be used instead of SecurityType for non-Fixed Income instruments. Example values (grouped by Product field value) (Note: additional values may be used by mutual agreement of the counterparties): * Identify the Issuer in the \"Issuer\" field(06) *** REPLACED values - See \"Replaced Features and Supported Approach\" *** NOTE: Additional values may be used by mutual agreement of the counterparties) EUSUPRA = Euro Supranational Coupons * Added\u00A0 FIX.4.4 [EuroSupranationalCoupons] FAC = Federal Agency Coupon Added\u00A0 FIX.4.3 [FederalAgencyCoupon] FADN = Federal Agency Discount Note Added\u00A0 FIX.4.3 [FederalAgencyDiscountNote] PEF = Private Export Funding * Added\u00A0 FIX.4.3 [PrivateExportFunding] SUPRA = USD Supranational Coupons * Added\u00A0 FIX.4.4 [USDSupranationalCoupons] CORP = Corporate Bond Added\u00A0 FIX.4.1 [CorporateBond] CPP = Corporate Private Placement Added\u00A0 FIX.4.1 [CorporatePrivatePlacement] CB = Convertible Bond Added\u00A0 FIX.4.2 [ConvertibleBond] DUAL = Dual Currency Added\u00A0 FIX.4.3 [DualCurrency] EUCORP = Euro Corporate Bond Added\u00A0 FIX.4.4 [EuroCorporateBond] XLINKD = Indexed Linked Added\u00A0 FIX.4.3 [IndexedLinked] STRUCT = Structured Notes Added\u00A0 FIX.4.3 [StructuredNotes] YANK = Yankee Corporate Bond Added\u00A0 FIX.4.3 [YankeeCorporateBond] FOR = Foreign Exchange Contract Added\u00A0 FIX.4.1 [ForeignExchangeContract] CS = Common Stock Added\u00A0 FIX.4.1 [CommonStock] PS = Preferred Stock Added\u00A0 FIX.4.1 [PreferredStock] BRADY = Brady Bond Added\u00A0 FIX.4.3 [BradyBond] EUSOV = Euro Sovereigns * Added\u00A0 FIX.4.4 [EuroSovereigns] TBOND = US Treasury Bond Added\u00A0 FIX.4.3 [USTreasuryBond] TINT = Interest strip from any bond or note Added\u00A0 FIX.4.3 [InterestStripFromAnyBondOrNote] TIPS = Treasury Inflation Protected Securities Added\u00A0 FIX.4.3 [TreasuryInflationProtectedSecurities] TCAL = Principal strip of a callable bond or note Added\u00A0 FIX.4.3 [PrincipalStripOfACallableBondOrNote] TPRN = Principal strip from a non-callable bond or note Added\u00A0 FIX.4.3 [PrincipalStripFromANonCallableBondOrNote] UST = US Treasury Note (deprecated value, use \"TNOTE\") Added\u00A0 FIX.4.3 [USTreasuryNoteOld] USTB = US Treasury Bill (deprecated value, use \"TBILL\") Added\u00A0 FIX.4.1 [USTreasuryBillOld] TNOTE = US Treasury Note Added\u00A0 FIX.4.4 [USTreasuryNote] TBILL = US Treasury Bill Added\u00A0 FIX.4.4 [USTreasuryBill] REPO = Repurchase Added\u00A0 FIX.4.4 [Repurchase] FORWARD = Forward Added\u00A0 FIX.4.4 [Forward] BUYSELL = Buy Sellback Added\u00A0 FIX.4.4 [BuySellback] SECLOAN = Securities Loan Added\u00A0 FIX.4.4 [SecuritiesLoan] SECPLEDGE = Securities Pledge Added\u00A0 FIX.4.4 [SecuritiesPledge] TERM = Term Loan Added\u00A0 FIX.4.3 [TermLoan] RVLV = Revolver Loan Added\u00A0 FIX.4.3 [RevolverLoan] RVLVTRM = Revolver/Term Loan Added\u00A0 FIX.4.3 [Revolver] BRIDGE = Bridge Loan Added\u00A0 FIX.4.3 [BridgeLoan] LOFC = Letter of Credit Added\u00A0 FIX.4.3 [LetterOfCredit] SWING = Swing Line Facility Added\u00A0 FIX.4.3 [SwingLineFacility] DINP = Debtor in Possession Added\u00A0 FIX.4.3 [DebtorInPossession] DEFLTED = Defaulted Added\u00A0 FIX.4.3 [Defaulted] WITHDRN = Withdrawn Added\u00A0 FIX.4.3 [Withdrawn] REPLACD = Replaced Added\u00A0 FIX.4.3 [Replaced] MATURED = Matured Added\u00A0 FIX.4.3 [Matured] AMENDED = Amended & Restated Added\u00A0 FIX.4.3 [Amended] RETIRED = Retired Added\u00A0 FIX.4.3 [Retired] BA = Bankers Acceptance Added\u00A0 FIX.4.1 [BankersAcceptance] BN = Bank Notes Added\u00A0 FIX.4.3 [BankNotes] BOX = Bill of Exchanges Added\u00A0 FIX.4.3 [BillOfExchanges] CD = Certificate of Deposit Added\u00A0 FIX.4.1 [CertificateOfDeposit] CL = Call Loans Added\u00A0 FIX.4.3 [CallLoans] CP = Commercial Paper Added\u00A0 FIX.4.1 [CommercialPaper] DN = Deposit Notes Added\u00A0 FIX.4.3 [DepositNotes] EUCD = Euro Certificate of Deposit Added\u00A0 FIX.4.4 [EuroCertificateOfDeposit] EUCP = Euro Commercial Paper Added\u00A0 FIX.4.4 [EuroCommercialPaper] LQN = Liquidity Note Added\u00A0 FIX.4.3 [LiquidityNote] MTN = Medium Term Notes Added\u00A0 FIX.4.3 [MediumTermNotes] ONITE = Overnight Added\u00A0 FIX.4.3 [Overnight] PN = Promissory Note Added\u00A0 FIX.4.3 [PromissoryNote] PZFJ = Plazos Fijos Added\u00A0 FIX.4.3 [PlazosFijos] STN = Short Term Loan Note Added\u00A0 FIX.4.3 [ShortTermLoanNote] TD = Time Deposit Added\u00A0 FIX.4.1 [TimeDeposit] XCN = Extended Comm Note Added\u00A0 FIX.4.3 [ExtendedCommNote] YCD = Yankee Certificate of Deposit Added\u00A0 FIX.4.4 [YankeeCertificateOfDeposit] ABS = Asset-backed Securities Added\u00A0 FIX.4.3 [AssetBackedSecurities] CMBS = Corp. Mortgage-backed Securities Added\u00A0 FIX.4.3 [Corp] CMO = Collateralized Mortgage Obligation Added\u00A0 FIX.4.1 [CollateralizedMortgageObligation] IET = IOETTE Mortgage Added\u00A0 FIX.4.2 [IOETTEMortgage] MBS = Mortgage-backed Securities Added\u00A0 FIX.4.3 [MortgageBackedSecurities] MIO = Mortgage Interest Only Added\u00A0 FIX.4.1 [MortgageInterestOnly] MPO = Mortgage Principal Only Added\u00A0 FIX.4.1 [MortgagePrincipalOnly] MPP = Mortgage Private Placement Added\u00A0 FIX.4.1 [MortgagePrivatePlacement] MPT = Miscellaneous Pass-through Added\u00A0 FIX.4.1 [MiscellaneousPassThrough] PFAND = Pfandbriefe * Added\u00A0 FIX.4.4 [Pfandbriefe] TBA = To be Announced Added\u00A0 FIX.4.3 [ToBeAnnounced] AN = Other Anticipation Notes BAN, GAN, etc. Added\u00A0 FIX.4.3 [OtherAnticipationNotes] COFO = Certificate of Obligation Added\u00A0 FIX.4.3 [CertificateOfObligation] COFP = Certificate of Participation Added\u00A0 FIX.4.3 [CertificateOfParticipation] GO = General Obligation Bonds Added\u00A0 FIX.4.3 [GeneralObligationBonds] MT = Mandatory Tender Added\u00A0 FIX.4.3 [MandatoryTender] RAN = Revenue Anticipation Note Added\u00A0 FIX.4.3 [RevenueAnticipationNote] REV = Revenue Bonds Added\u00A0 FIX.4.3 [RevenueBonds] SPCLA = Special Assessment Added\u00A0 FIX.4.3 [SpecialAssessment] SPCLO = Special Obligation Added\u00A0 FIX.4.3 [SpecialObligation] SPCLT = Special Tax Added\u00A0 FIX.4.3 [SpecialTax] TAN = Tax Anticipation Note Added\u00A0 FIX.4.3 [TaxAnticipationNote] TAXA = Tax Allocation Added\u00A0 FIX.4.3 [TaxAllocation] TECP = Tax Exempt Commercial Paper Added\u00A0 FIX.4.3 [TaxExemptCommercialPaper] TRAN = Tax & Revenue Anticipation Note Added\u00A0 FIX.4.3 [TaxRevenueAnticipationNote] VRDN = Variable Rate Demand Note Added\u00A0 FIX.4.3 [VariableRateDemandNote] WAR = Warrant Added\u00A0 FIX.4.1 [Warrant] MF = Mutual Fund (i.e. any kind of open-ended \"Collective Investment Vehicle\") Added\u00A0 FIX.4.1 [MutualFund] MLEG = Multi-leg instrument (e.g. options strategy or futures spread. CFICode (461) can be used to identify if options-based, futures-based, etc.) Added\u00A0 FIX.4.3 [MultilegInstrument] NONE = No Security Type Added\u00A0 FIX.4.1 [NoSecurityType] \u2014\u00A0Derivatives\u00A0\u2014 FUT = Future Added\u00A0 FIX.4.1 [Future] OPT = Option Added\u00A0 FIX.4.1 [Option]"
+},
+"tag200": {
+  "name": "MaturityMonthYear",
+  "fixDataType": "String",
+  "description": "Can be used with standardized derivatives vs. the MaturityDate (54) field. Month and Year of the maturity (used for standardized futures and options). Format: YYYYMM (i.e. 199903) YYYYMMDD (20030323) YYYYMMwN (200303w) for week A specific date or can be appended to the MaturityMonthYear. For instance, if multiple standard products exist that mature in the same Year and Month, but actually mature at a different time, a value can be appended, such as \"w\" or \"w2\" to indicate week as opposed to week 2 expiration. Likewise, the date (0-3) can be appended to indicate a specific expiration (maturity date)."
+},
+"tag207": {
+  "name": "SecurityExchange",
+  "fixDataType": "String",
+  "description": "Market used to help identify a security. Valid values: See \"Appendix 6-C\""
+},
+"tag426": {
+  "name": "DayAvgPx",
+  "fixDataType": "float",
+  "description": "The average price for quantity on a GT order that has traded today."
+},
+"tag432": {
+  "name": "ExpireDate",
+  "fixDataType": "String",
+  "description": "Date of order expiration (last day the order can trade), always expressed in terms of the local market date. The time at which the order expires is determined by the local market\u2019s business practices"
+},
+"tag851": {
+  "name": "LastLiquidityInd",
+  "fixDataType": "int",
+  "description": "Indicator to identify whether this fill was a result of a liquidity provider providing or liquidity taker taking the liquidity. Applicable only for OrdStatus of Partial or Filled. 1 = Added Liquidity Added\u00A0 FIX.4.4 [AddedLiquidity] 2 = Removed Liquidity Added\u00A0 FIX.4.4 [RemovedLiquidity] 3 = Liquidity Routed Out Added\u00A0 FIX.4.4 [LiquidityRoutedOut]"
+},
+"tag9739": {
+  "name": "null",
+  "fixDataType": "null",
+  "description": "null"
+},
+"tag9901": {
+  "name": "null",
+  "fixDataType": "null",
+  "description": "null"
+}
+}

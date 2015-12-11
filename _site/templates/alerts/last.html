@@ -1,0 +1,25 @@
+<div class="container-fluid" ng-controller="LastController">
+  <h3>Last Execution</h3>
+  <ul>
+    <li>
+      <label>Report Id: </label>
+      {{ report.id }}
+    </li>
+    <li>
+      <label>Start Time: </label>
+      {{ report.startTime | date: 'short'}}
+    </li>
+    <li>
+      <label>End Time: </label>
+      {{ report.endTime | date: 'short'}}
+    </li>
+    <li>
+      <label>Success: </label>
+      {{ report.success }}
+    </li>
+    <li>
+      <label>Result: </label>
+      {{ report.result }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "ase-ui",
+  "version": "1.0.0",
+  "description": "All Seeing Eye UI",
+  "main": "_site/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mario Pereira",
+  "license": "ISC"
+}

@@ -1,0 +1,80 @@
+<div class="container-fluid" ng-controller="AlertsController">
+    <div class="row">
+        <h3>Alerts</h3>
+    </div>
+
+    <div class="row">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Scheduling</th>
+                <th>Status</th>
+                <th>Next Event</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="alert in scheduledAlerts">
+                    <td>{{ alert.id }}</td>
+                    <td><a ui-sref="history({alertId: alert.id})">{{ alert.name }}</a></td>
+                    <td>{{ alert.alertJobClass  | alertNameFilter }}</td>
+                    <td ng-show="alert.cron.mode === 'TIME'">Time: {{ alert.cron.time | date: 'short' }}</td>
+                    <td ng-show="alert.cron.mode === 'FREQUENCY'">Frequency: {{ alert.cron.frequency }}</td>
+                    <td>
+                      <a ui-sref="last({alertId: alert.id})" ng-show="alert.success" class="label label-success">Success</a>
+                      <a ui-sref="last({alertId: alert.id})" ng-hide="alert.success" class="label label-danger">Failure</a>
+                    </td>
+                    <td>{{ alert.nextFireTime | date: 'short' }}</td>
+                    <td>
+                      <button class="btn btn-default btn-sm" ng-click="removeCron(alert.id)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row" style="margin-top: 70px">
+
+            <input ng-model="alert.name" type="text" placeholder="Name">
+
+            <div id="alert-selection" class="col-lg-3" style="display: inline-block; vertical-align: middle; float: none">
+                <ui-select ng-model="alert.selected" theme="bootstrap" ng-disabled="disabled" style="width: 250px;">
+                    <ui-select-match placeholder="Select or search a alert in the list...">{{$select.selected}}</ui-select-match>
+                    <ui-select-choices repeat="alert in alerts | filter: $select.search">
+                      <span ng-bind-html="alert | highlight: $select.search"></span>
+                      <!-- <small ng-bind-html="alert.code | highlight: $select.search"></small> -->
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+
+            <div class="col-lg-2" ng-show="alert.selected" style="display: inline-block; vertical-align: middle; float: none">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cron <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a  ng-click="selectCron('TIME')">Time</a></li>
+                    <li><a  ng-click="selectCron('FREQUENCY')">frequency</a></li>
+                  </ul>
+                </div>
+
+            </div>
+
+            <div class="col-lg-2" ng-show="showCron !== undefined && showCron === 'TIME'" style="display: inline-block; vertical-align: middle; float: none">
+                <timepicker ng-model="cron.time" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+            </div>
+
+             <div class="col-lg-2" ng-show="showCron !== undefined && showCron === 'FREQUENCY'" style="display: inline-block; vertical-align: middle; float: none">
+                <input ng-model="cron.frequency" type="text" class="form-control" placeholder="Regex..." aria-describedby="basic-addon1">
+             </div>
+
+            <div class="col-lg-2" ng-show="showCron !== undefined && (( showCron === 'FREQUENCY' &&  cron.frequency !== undefined) || showCron === 'TIME' )" style="display: inline-block; vertical-align: middle; float: none">
+                <button type="button" class="btn btn-success" ng-click="addCron()">Add</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

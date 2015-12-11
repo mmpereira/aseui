@@ -1,0 +1,27 @@
+<div class="container-fluid" ng-controller="DetailsController">
+    <h3>{{ orderId }}</h3>
+
+    <table class="table table-striped table-condensed">
+        <thead>
+            <th>Field</th>
+            <th>Value</th>
+        </thead>
+        
+        <tbody>
+            <tr ng-repeat="field in fields">
+                <td>
+                    <a class="fix-tag" href="#" title="{{ field.description }}">
+                        {{ field.name }}
+                    </a>
+                </td>
+                <td>{{ order.TAGS[field.id] }}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    
+        
+
+</div>
+
+

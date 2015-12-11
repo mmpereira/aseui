@@ -1,0 +1,20 @@
+<div class="container-fluid" ng-controller="ResultController">
+    <h3>Results</h3>
+
+    <table class="table table-striped table-condensed">
+        <thead>
+            <th ng-repeat="col in columns">
+                {{ col }}
+            </th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in results">
+                <td ng-repeat="col in columns">
+                    {{ row.resultElement[col] | resultFilter }}
+                </td>
+                <td><span class="glyphicon glyphicon-search" ui-sref="details({ alertId: alertId, orderId: row.resultElement['NAME'] })"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
